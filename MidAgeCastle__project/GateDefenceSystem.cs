@@ -6,10 +6,11 @@ namespace MidAgeCastle__project
 {
     class GateDefenceSystem
     {
-        public Moat moat;
-        public Gate gate;
-        public bool isBridgeDown;
-        public bool isTarTrapSet;
+        private Moat moat;
+        private Gate gate;
+        private bool isBridgeDown;
+        private bool isTarTrapSet;
+        private static int tarDamage = 200;
         public GateDefenceSystem()
         {
             moat = new Moat();
@@ -24,9 +25,20 @@ namespace MidAgeCastle__project
             isBridgeDown = false;
             isTarTrapSet = false;
         }
-        public void dealDamage(DirectedAttack attack)
+        public bool takeDamage(DirectedAttack attack)
         {
-
+            bool result = false;
+            if (isBridgeDown)
+            {
+                if (isTarTrapSet)
+                {
+                    attack.decreaseDamage(tarDamage);
+                    isTarTrapSet = false;
+                }
+            }
+            attack.decreaseDamage(moat.getDefenseDmg());
+            result = result || gate.takeDamage(attack);
+            return result;
         }
         public void closeBridge()
         {
@@ -35,6 +47,14 @@ namespace MidAgeCastle__project
         public void openBridge()
         {
             isBridgeDown = true;
+        }
+        public bool isBridgeDowned()
+        {
+            return isBridgeDown;
+        }
+        public bool isGateOpened()
+        {
+            return gate.isGateOpened();
         }
         public void fillTarTraps()
         {
@@ -53,6 +73,14 @@ namespace MidAgeCastle__project
         {
             gate.closeGate();
             closeBridge();
+        }
+        public WorldDirection getPosition()
+        {
+            return gate.getPosition();
+        }
+        public bool isDestroyed()
+        {
+            return gate.isDestroyed();
         }
     }
 }

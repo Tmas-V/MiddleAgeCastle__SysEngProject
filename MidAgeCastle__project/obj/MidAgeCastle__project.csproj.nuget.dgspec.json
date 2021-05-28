@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MidAgeCastle__project\\MidAgeCastle__project.csproj": {}
+    "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MiddleAgeCastle__SysEngProject\\MidAgeCastle__project\\MidAgeCastle__project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MidAgeCastle__project\\MidAgeCastle__project.csproj": {
+    "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MiddleAgeCastle__SysEngProject\\MidAgeCastle__project\\MidAgeCastle__project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MidAgeCastle__project\\MidAgeCastle__project.csproj",
+        "projectUniqueName": "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MiddleAgeCastle__SysEngProject\\MidAgeCastle__project\\MidAgeCastle__project.csproj",
         "projectName": "MidAgeCastle__project",
-        "projectPath": "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MidAgeCastle__project\\MidAgeCastle__project.csproj",
+        "projectPath": "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MiddleAgeCastle__SysEngProject\\MidAgeCastle__project\\MidAgeCastle__project.csproj",
         "packagesPath": "C:\\Users\\Valera\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MidAgeCastle__project\\obj\\",
+        "outputPath": "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MiddleAgeCastle__SysEngProject\\MidAgeCastle__project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

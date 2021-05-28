@@ -6,11 +6,11 @@ namespace MidAgeCastle__project
 {
     class WallDefenceSystem
     {
-        public int wall_count;
-        public Wall[] walls;
-        public int tower_count;
-        public Tower[] towers;
-        public bool isDefenceDown;
+        private Moat moat;
+        private int wall_count;
+        private Wall[] walls;
+        private int tower_count;
+        private Tower[] towers;
 
         public WallDefenceSystem()
         {
@@ -18,7 +18,7 @@ namespace MidAgeCastle__project
             walls = null;
             tower_count = 0;
             towers = null;
-            isDefenceDown = false;
+            moat = new Moat();
         }
         public WallDefenceSystem(CastleForm form)
         {
@@ -44,15 +44,51 @@ namespace MidAgeCastle__project
                 tower_count = 0;
                 towers = null;
             }
-            isDefenceDown = false;
+            moat = new Moat();
         }
-        public void dealDamage(DirectedAttack attack)
+        public bool takeDamage(List<DirectedAttack> attack)
         {
-
+            foreach(DirectedAttack atk in attack)
+            {
+                atk.decreaseDamage(moat.getDefenseDmg());
+                foreach(Tower tower in towers)
+                {
+                    tower.dealDamage(atk);
+                }
+                foreach (Wall wall in walls)
+                {
+                    wall.dealDamage(atk);
+                }
+            }
+            return isDestroyed();
         }
-        public void counterAttack(WorldDirection direction)
+        public Dictionary<WorldDirection,bool> displayFallenDefenses()
         {
-
+            Dictionary<WorldDirection, bool> result = new Dictionary<WorldDirection, bool>();
+            foreach(Wall wall in walls)
+            {
+                if (!wall.isDestroyed())
+                {
+                    result.Add(wall.getPosition(), true);
+                }
+            }
+            foreach (Tower tower in towers)
+            {
+                if (!tower.isDestroyed())
+                {
+                    result.Add(tower.getPosition(), true);
+                }
+            }
+            return result;
+        }
+        public bool isDestroyed()
+        {
+            bool result = false;
+            foreach(Wall wall in walls)
+            {
+                result = result || wall.isDestroyed();
+            }
+            return result;
         }
     }
 }

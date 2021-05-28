@@ -23,19 +23,11 @@ namespace MidAgeCastle__project
             gateDefSys = new GateDefenceSystem(form, direct);
             donjonTower = new DonjonTower();
         }
-        public void dealDamage(DirectedAttack attack)
-        {
-
-        }
         public void exist()
         {
             Thread newThread = new Thread(new ThreadStart(donjonTower.exist));
             newThread.IsBackground = true;
             newThread.Start();
-        }
-        public void siege()
-        {
-
         }
     }
 }

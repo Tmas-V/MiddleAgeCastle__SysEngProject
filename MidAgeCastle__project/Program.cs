@@ -25,8 +25,14 @@ namespace MidAgeCastle__project
     }
     public struct DirectedAttack
     {
-        int damage;
-        WorldDirection direction;
+        public int damage;
+        public WorldDirection direction;
+
+        public void decreaseDamage(int dmg)
+        {
+            if (dmg > damage) damage = 0;
+            else damage -= dmg;
+        }
     }
     public enum BuildMaterial
     {

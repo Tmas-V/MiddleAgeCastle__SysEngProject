@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HwcPb/Fa3lHUAIqdReNHIsv914tfawASjHZPhduDHUyUbJCV3XTTZk6LiZv/9EfA2nMb6d/t3YhRbt8Mj4mcVw==",
+  "dgSpecHash": "17aKxyCnzsv+ABujRENXLKMuy2a9R5ot5tmwu8knE/WEKYM6N0hb19QQZsK77k+nGRTDvAb8YA5xnHRVCu0I9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MidAgeCastle__project\\MidAgeCastle__project.csproj",
+  "projectFilePath": "C:\\Users\\Valera\\source\\repos\\MidAgeCastle__project\\MiddleAgeCastle__SysEngProject\\MidAgeCastle__project\\MidAgeCastle__project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Valera\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
   ],

@@ -22,13 +22,38 @@ namespace MidAgeCastle__project
             gateDefSys = new GateDefenceSystem(form, direct);
             isDefenceDown = false;
         }
-        public void dealDamage(DirectedAttack attack)
+        public bool takeAttack(List<DirectedAttack> attackVectors)
         {
+            WorldDirection gatePos = gateDefSys.getPosition();
+            List<DirectedAttack> gateDirectedAttacks = new List<DirectedAttack>();
+            int i = 0;
+            while(i < attackVectors.Count)
+            {
+                if (attackVectors[i].direction == gatePos)
+                {
+                    gateDirectedAttacks.Add(attackVectors[i]);
+                    attackVectors.RemoveAt(i);
+                }
+                else i++;
+            }
+            bool result = false;
+            foreach (DirectedAttack gateAttack in gateDirectedAttacks)
+            {
+                result = result || gateDefSys.takeDamage(gateAttack);
+            }
+            if (result)
+            {
+                return true;
+            }
+            result = result || wallDefSys.takeDamage(attackVectors);
+            return result;
 
         }
-        public void counterAttack()
+        public Dictionary<WorldDirection, bool> displayFallenDefenses()
         {
-
+            Dictionary<WorldDirection, bool> result = wallDefSys.displayFallenDefenses();
+            if (gateDefSys.isDestroyed()) result.Add(gateDefSys.getPosition(), true);
+            return result;
         }
     }
 }

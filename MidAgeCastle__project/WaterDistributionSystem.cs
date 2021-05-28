@@ -48,6 +48,13 @@ namespace MidAgeCastle__project
             }
             return 0;
         }
+        public void disableWells()
+        {
+            foreach(Well well in wells)
+            {
+                well.disable();
+            }
+        }
         public void existInCastle()
         {
             for (int i = 0; i < well_count; i++)

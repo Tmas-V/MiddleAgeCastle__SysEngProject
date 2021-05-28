@@ -11,3 +11,16 @@ C:\Users\Valera\source\repos\MidAgeCastle__project\MidAgeCastle__project\obj\Deb
 C:\Users\Valera\source\repos\MidAgeCastle__project\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.dll
 C:\Users\Valera\source\repos\MidAgeCastle__project\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.pdb
 C:\Users\Valera\source\repos\MidAgeCastle__project\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.genruntimeconfig.cache
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.csprojAssemblyReference.cache
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.AssemblyInfoInputs.cache
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.AssemblyInfo.cs
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.csproj.CoreCompileInputs.cache
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.dll
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.pdb
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\bin\Debug\netcoreapp3.1\MidAgeCastle__project.exe
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\bin\Debug\netcoreapp3.1\MidAgeCastle__project.deps.json
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\bin\Debug\netcoreapp3.1\MidAgeCastle__project.runtimeconfig.json
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\bin\Debug\netcoreapp3.1\MidAgeCastle__project.runtimeconfig.dev.json
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\bin\Debug\netcoreapp3.1\MidAgeCastle__project.dll
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\bin\Debug\netcoreapp3.1\MidAgeCastle__project.pdb
+C:\Users\Valera\source\repos\MidAgeCastle__project\MiddleAgeCastle__SysEngProject\MidAgeCastle__project\obj\Debug\netcoreapp3.1\MidAgeCastle__project.genruntimeconfig.cache

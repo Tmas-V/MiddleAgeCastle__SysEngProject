@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace MidAgeCastle__project
 {
@@ -16,6 +17,7 @@ namespace MidAgeCastle__project
         private Feudal currentFeudal;
 
         public bool isUnderAttack;
+        public bool isUnderSiege;
         public bool isUnderFeudal;
 
         private static Castle instance = null;
@@ -31,6 +33,7 @@ namespace MidAgeCastle__project
             comfyLivingSys = new ComfyLivingSystem();
             prisonSys = new PrisonSystem();
             isUnderAttack = false;
+            isUnderSiege = false;
             isUnderFeudal = false;
             currentFeudal = null;
         }
@@ -44,6 +47,7 @@ namespace MidAgeCastle__project
             comfyLivingSys = new ComfyLivingSystem();
             prisonSys = new PrisonSystem();
             isUnderAttack = false;
+            isUnderSiege = false;
             isUnderFeudal = false;
             currentFeudal = null;
         }
@@ -97,13 +101,19 @@ namespace MidAgeCastle__project
             isUnderFeudal = false;
             currentFeudal = null;
         }
-        public void defendAgainstAttack()
+        public Dictionary<WorldDirection, bool> defendAgainstAttack(List<DirectedAttack> attackVectors, int suggestedSiegeDurationMs)
         {
-
-        }
-        public void defendAgainstSiege()
-        {
-
+            isUnderAttack = true;
+            internalDefSys.donjonTower.setUnderAttack();
+            bool attackResult = externalDefSys.takeAttack(attackVectors);
+            Dictionary<WorldDirection, bool> exposedDirections = externalDefSys.displayFallenDefenses();
+            if (attackResult)
+            {
+                isUnderSiege = true;
+                waterDistribSys.disableWells();
+                Thread.Sleep(suggestedSiegeDurationMs);
+            }
+            return exposedDirections;
         }
         public void exist()
         {
@@ -118,6 +128,12 @@ namespace MidAgeCastle__project
             string result = "";
             result += "++++++++++++++++++++++++++++++++++++++\n";
             result += "Castle name: " + name + "\n";
+            bool bridge = externalDefSys.gateDefSys.isBridgeDowned();
+            bool gate = externalDefSys.gateDefSys.isGateOpened();
+            if (bridge) result += "The bridge is down(open)\n";
+            else result += "The bridge is up(closed)\n";
+            if (gate) result += "The entrance gate is opened.\n";
+            else result += "The entrance gate is closed.\n";
             result += "wells in the castle: \n";
             for (int i = 0; i< waterDistribSys.well_count; i++)
             {

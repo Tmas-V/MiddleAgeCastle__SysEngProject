@@ -7,18 +7,21 @@ namespace MidAgeCastle__project
     class DefenceUnit
     {
         protected static int default_defense = 100;
+        protected static int default_dmg_per_guardian = 50;
         protected int MAX_defense;
         protected int defense;
         protected WorldDirection position;
         protected BuildMaterial material;
         protected int guard_count;
         protected Guardian[] warriors;
+        protected int dmgPerGuardian;
         public DefenceUnit()
         {
             MAX_defense = default_defense;
             defense = default_defense;
             guard_count = 0;
             warriors = null;
+            dmgPerGuardian = default_dmg_per_guardian;
         }
         public DefenceUnit( WorldDirection worldDirect, BuildMaterial buildMaterial)
         {
@@ -28,6 +31,7 @@ namespace MidAgeCastle__project
             material = buildMaterial;
             guard_count = 0;
             warriors = null;
+            dmgPerGuardian = default_dmg_per_guardian;
         }
         public DefenceUnit(int _MAX_defense, WorldDirection worldDirect, BuildMaterial buildMaterial)
         {
@@ -37,11 +41,14 @@ namespace MidAgeCastle__project
             material = buildMaterial;
             guard_count = 0;
             warriors = null;
+            dmgPerGuardian = default_dmg_per_guardian;
         }
-        public virtual void dealDamage(int damage)
+        public virtual void dealDamage(DirectedAttack atk)
         {
-            if (damage <= 0) return;
-            if (damage < defense) defense -= damage;
+            if (atk.direction != position) return;
+            atk.decreaseDamage(dmgPerGuardian*guard_count);
+            if (atk.damage <= 0) return;
+            if (atk.damage < defense) defense -= atk.damage;
             else
             {
                 defense = 0;
@@ -51,6 +58,10 @@ namespace MidAgeCastle__project
         {
             if (defense > 0) return false;
             return true;
+        }
+        public WorldDirection getPosition()
+        {
+            return position;
         }
     }
 }

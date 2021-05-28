@@ -13,29 +13,21 @@ namespace MidAgeCastle__project
         private DepletableObject food;
         
         
-        public bool isUnderSiege;
+        private bool isUnderAttack;
+        private object isUnderAttackObject;
+
+
         public DonjonTower()
         {
             food = new DepletableObject(default_food_cap, default_food_cap, food_gain, 0);
-            isUnderSiege = false;
+            isUnderAttack = false;
+            isUnderAttackObject = new object();
         }
         public DonjonTower(int food_cap, int water_cap)
         {
             food = new DepletableObject(default_food_cap, default_food_cap, food_gain, 0);
-            isUnderSiege = false;
-        }
-        public override void dealDamage(int damage)
-        {
-            if (defense == MAX_defense)
-            {
-                isUnderSiege = true;
-            }
-            if (damage < defense)
-            {
-                defense -= damage;
-                return;
-            }
-            defense = 0;
+            isUnderAttack = false;
+            isUnderAttackObject = new object();
         }
 
         public int getFood(int amount)
@@ -46,18 +38,32 @@ namespace MidAgeCastle__project
         {
             return food.showValue();
         }
+        public void setUnderAttack()
+        {
+            lock (isUnderAttackObject)
+            {
+                isUnderAttack = true;
+            }
+        }
+        public void setInPeace()
+        {
+            lock (isUnderAttackObject)
+            {
+                isUnderAttack = false;
+            }
+        }
 
         public void exist()
         {
             while (!isDestroyed())
             {
-                food.gain();
+                lock (isUnderAttackObject)
+                {
+                    if (!isUnderAttack)
+                        food.gain();
+                }
                 Thread.Sleep(4000);
             }
-        }
-        public void siege()
-        {
-
         }
     }
 }

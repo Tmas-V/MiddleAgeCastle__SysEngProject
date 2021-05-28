@@ -16,5 +16,9 @@ namespace MidAgeCastle__project
         {
             form = _form;
         }
+        public int getDefenseDmg()
+        {
+            return defense;
+        }
     }
 }

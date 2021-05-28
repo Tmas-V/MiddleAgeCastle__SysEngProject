@@ -11,11 +11,8 @@ namespace MidAgeCastle__project
         public static int default_water_gain = 50;
         private DepletableObject water;
         private bool isAvailable;
+        private object isAvSync;
 
-        public void looseWell()
-        {
-            isAvailable = false;
-        }
         public void accumulateWater()
         {
             water.gain();
@@ -28,11 +25,13 @@ namespace MidAgeCastle__project
         {
             water = new DepletableObject(default_MAX_water, default_MAX_water / 2, default_water_gain, 0);
             isAvailable = true;
+            isAvSync = new object();
         }
         public Well(int _water_gain, int _MAX_water)
         {
             water = new DepletableObject(_MAX_water, _MAX_water / 2, _water_gain, 0);
             isAvailable = true;
+            isAvSync = new object();
         }
 
         public bool isEmpty()
@@ -42,19 +41,34 @@ namespace MidAgeCastle__project
         }
         public bool isFree()
         {
-            return isAvailable;
+            lock (isAvSync)
+            {
+                return isAvailable;
+            }
         }
         public int showWaterAmount()
         {
             return water.showValue();
         }
+        public void disable()
+        {
+            lock (isAvSync)
+            {
+                isAvailable = false;
+            }
+        }
 
         public void exist()
         {
-            while (isAvailable)
+            bool isAv = isAvailable;
+            while (isAv)
             {
                 accumulateWater();
                 Thread.Sleep(5000);
+                lock (isAvSync)
+                {
+                    isAv = isAvailable;
+                }
             }
         }
     }

@@ -28,5 +28,22 @@ namespace MidAgeCastle__project
         {
             isGateOpen = false;
         }
+        public bool isGateOpened()
+        {
+            return isGateOpen;
+        }
+        public bool takeDamage(DirectedAttack attack)
+        {
+            if (attack.damage == 0)
+            {
+                return false;
+            }
+            if (isGateOpen)
+            {
+                return true;
+            }
+            dealDamage(attack);
+            return isDestroyed();
+        }
     }
 }
